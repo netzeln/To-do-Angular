@@ -8,7 +8,7 @@ import {Task} from './task.model';
     <div class="task-form">
       <h3>Blank Template</h3>
       <input placeholder="Description" class="col-sm-8 input-lg" #newDescription>
-      <button (click)="addTask(newDescription)" class="btn btn-info">Add</button>
+      <button (click)="addTask(newDescription)" class="btn btn-info add-button">Add</button>
     </div>
   `
 })
@@ -18,7 +18,7 @@ export class NewTaskComponent{
     this.onSubmitNewTask = new EventEmitter();
   }
   addTask(userDescription: HTMLInputElement){
-    console.log(userDescription.value);
+    this.onSubmitNewTask.emit(userDescription.value);
     userDescription.value = "";
   }
 }
